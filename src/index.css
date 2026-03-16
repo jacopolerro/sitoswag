@@ -1,7 +1,9 @@
 :root {
   --black: #000000;
+  --white: #ffffff;
   --red: #ff0000;
   --font-brutal: 'Impact', 'Syne', sans-serif;
+  --font-readable: "Syne", Helvetica, sans-serif;
 }
 
 * {
@@ -21,6 +23,14 @@ body {
   background: radial-gradient(circle at center, transparent 40%, #000 120%), var(--black);
 }
 
+p, .text-body {
+  text-transform: none;
+  font-family: var(--font-readable);
+  line-height: 1.6;
+  letter-spacing: normal;
+  font-weight: 400;
+}
+
 ::selection {
   background-color: var(--red);
   color: var(--black);
@@ -37,17 +47,17 @@ body {
   background: var(--red);
 }
 
-/* Effetto Rumore di fondo */
+/* Effetto Rumore di fondo - Texture più stabile */
 .noise-bg {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  opacity: 0.05;
+  opacity: 0.03;
   pointer-events: none;
   z-index: 9999;
-  background-image: url('https://media.giphy.com/media/oEI9uWUicKgPUVat0V/giphy.gif');
+  background-image: url('https://grainy-gradients.vercel.app/noise.svg');
 }
 
 /* Scanlines per effetto CRT distrutto */
