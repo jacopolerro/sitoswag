@@ -370,6 +370,90 @@ section {
   letter-spacing: -1px;
 }
 
+/* BOOKING SECTION SWAG */
+.booking-container {
+  padding: 0 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.brutal-form-swag {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background: rgba(15, 15, 15, 0.8);
+  padding: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.form-grid-swag {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.input-group-swag {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input-group-swag label {
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: var(--red);
+  letter-spacing: 2px;
+}
+
+.brutal-input-swag {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 15px;
+  color: var(--white);
+  font-family: var(--font-readable);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.brutal-input-swag:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.2); /* Soft red glow */
+  background: rgba(255, 0, 0, 0.05);
+}
+
+.brutal-input-swag::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+  font-weight: 300;
+}
+
+.btn-booking-swag {
+  margin-top: 20px;
+  background: var(--red);
+  color: var(--black);
+  border: none;
+  padding: 20px;
+  font-family: var(--font-brutal);
+  font-size: 1.2rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1); /* Chill transition */
+  letter-spacing: 2px;
+}
+
+.btn-booking-swag:hover {
+  transform: scale(1.03); /* Chill zoom */
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.6); /* Stronger red glow */
+  letter-spacing: 5px;
+}
+
+@media (max-width: 768px) {
+  .form-grid-swag { grid-template-columns: 1fr; }
+  .brutal-form-swag { padding: 30px 20px; }
+  .artist-title-big { font-size: 3rem; }
+}
+
 /* Rest of standard styles */
 .section { padding: 100px 0; background: var(--black); position: relative; z-index: 10; }
 .border-top { border-top: 5px solid var(--red); }

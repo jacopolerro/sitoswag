@@ -5,6 +5,7 @@ import { Hero } from './components/Hero'
 import { Marquee } from './components/Marquee'
 import { Identities } from './components/Identities'
 import { LatestDrops } from './components/LatestDrops'
+import { Booking } from './components/Booking'
 import { Footer } from './components/Footer'
 import { BackToTop } from './components/BackToTop'
 
@@ -17,6 +18,7 @@ function App() {
       <Marquee />
       <Identities />
       <LatestDrops />
+      <Booking />
       
       {/* Qui potremo aggiungere altre sezioni come Visuals o Booking in componenti separati */}
       
