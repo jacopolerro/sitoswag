@@ -16,7 +16,7 @@ export const Identities = () => {
         {/* FIVESEVEN ZONE */}
         <div 
           className="music-zone identity-card-bg clickable-card" 
-          style={{ backgroundImage: 'url("/assets/fiveseven-profile.jpg")' }}
+          style={{ backgroundImage: `url("${import.meta.env.BASE_URL}assets/fiveseven-profile.jpg")` }}
           onClick={() => scrollToSection('fiveseven-drops')}
         >
           <div className="identity-overlay"></div>
@@ -38,7 +38,7 @@ export const Identities = () => {
         {/* CBR ZONE */}
         <div 
           className="music-zone identity-card-bg zone-border-left clickable-card" 
-          style={{ backgroundImage: 'url("/assets/cbr-profile.jpg")' }}
+          style={{ backgroundImage: `url("${import.meta.env.BASE_URL}assets/cbr-profile.jpg")` }}
           onClick={() => scrollToSection('cbr320-drops')}
         >
           <div className="identity-overlay"></div>

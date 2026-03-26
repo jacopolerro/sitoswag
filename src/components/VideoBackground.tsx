@@ -2,7 +2,7 @@ export const VideoBackground = () => (
   <div className="video-bg-container">
     <div className="video-overlay"></div>
     {/* Lo sfondo principale con l'immagine "live" */}
-    <div className="hero-image-bg" style={{ backgroundImage: 'url("/assets/hero-bg.jpg")' }}></div>
+    <div className="hero-image-bg" style={{ backgroundImage: `url("${import.meta.env.BASE_URL}assets/hero-bg.jpg")` }}></div>
     
     {/* Overlay pulsante per le luci rosse */}
     <div className="red-pulse-overlay"></div>
