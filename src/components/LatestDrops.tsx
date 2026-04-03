@@ -14,7 +14,7 @@ const FIVESEVEN_DROPS = [
   {
     title: "ROCK DVR",
     tag: "HOT",
-    img: "https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?auto=format&fit=crop&q=80&w=800",
+    img: `${import.meta.env.BASE_URL}assets/rock-dvr.jpg`,
     spotifyId: "6WWtmHKupQx8vBUNon7cGj"
   }
 ];
