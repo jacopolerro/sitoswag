@@ -17,7 +17,7 @@ const CBR320_DROPS = [
   {
     title: "DIMELO QUE ES",
     tag: "ADE 2025",
-    img: "/assets/born-again.jpg",
+    img: `${import.meta.env.BASE_URL}assets/born-again.jpg`,
     spotifyId: "2XwSeZA8oxBOq3uISDPtBu"
   },
   {
