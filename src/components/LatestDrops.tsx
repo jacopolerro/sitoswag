@@ -10,6 +10,12 @@ const FIVESEVEN_DROPS = [
     tag: "VISION",
     img: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&q=80&w=800",
     spotifyId: "3KohbjrgKKgbIUZAqXS4CU"
+  },
+  {
+    title: "ROCK DVR",
+    tag: "HOT",
+    img: "https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?auto=format&fit=crop&q=80&w=800",
+    spotifyId: "6WWtmHKupQx8vBUNon7cGj"
   }
 ];
 
@@ -19,12 +25,6 @@ const CBR320_DROPS = [
     tag: "ADE 2025",
     img: `${import.meta.env.BASE_URL}assets/born-again.jpg`,
     spotifyId: "2XwSeZA8oxBOq3uISDPtBu"
-  },
-  {
-    title: "ROCK DVR",
-    tag: "HOT",
-    img: "https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?auto=format&fit=crop&q=80&w=800",
-    spotifyId: "6WWtmHKupQx8vBUNon7cGj"
   }
 ];
 
@@ -57,8 +57,10 @@ export const LatestDrops = () => (
         <div className="section-header-swag">
           <h2 className="title artist-title-big">FIVESEVEN <span className="red-glow-text">DROPS</span></h2>
         </div>
-        <div className="drops-grid-swag">
-          {FIVESEVEN_DROPS.map((drop, i) => <DropCard key={i} {...drop} />)}
+        <div className="drops-scroll-wrapper">
+          <div className="drops-grid-swag scrollable">
+            {FIVESEVEN_DROPS.map((drop, i) => <DropCard key={i} {...drop} />)}
+          </div>
         </div>
       </div>
 
@@ -67,8 +69,10 @@ export const LatestDrops = () => (
         <div className="section-header-swag">
           <h2 className="title artist-title-big">CBR320 <span className="red-glow-text">DROPS</span></h2>
         </div>
-        <div className="drops-grid-swag">
-          {CBR320_DROPS.map((drop, i) => <DropCard key={i} {...drop} />)}
+        <div className="drops-scroll-wrapper">
+          <div className="drops-grid-swag scrollable">
+            {CBR320_DROPS.map((drop, i) => <DropCard key={i} {...drop} />)}
+          </div>
         </div>
       </div>
     </div>

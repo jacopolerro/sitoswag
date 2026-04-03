@@ -305,6 +305,40 @@ section {
   text-shadow: 0 0 15px var(--red);
 }
 
+.drops-scroll-wrapper {
+  overflow-x: auto;
+  padding: 10px 0 30px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--red) transparent;
+}
+
+.drops-scroll-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.drops-scroll-wrapper::-webkit-scrollbar-thumb {
+  background: var(--red);
+  border-radius: 10px;
+}
+
+.drops-grid-swag.scrollable {
+  display: flex;
+  gap: 30px;
+  padding-bottom: 10px;
+}
+
+.drops-grid-swag.scrollable .drop-card-swag {
+  flex: 0 0 350px;
+  min-width: 350px;
+}
+
+@media (max-width: 768px) {
+  .drops-grid-swag.scrollable .drop-card-swag {
+    flex: 0 0 280px;
+    min-width: 280px;
+  }
+}
+
 .drops-grid-swag {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
