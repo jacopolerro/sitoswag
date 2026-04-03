@@ -1,19 +1,16 @@
 const FIVESEVEN_DROPS = [
   {
     title: "MILLI FLOW",
-    tag: "NEW ERA",
     img: `${import.meta.env.BASE_URL}assets/milli-flow.jpg`,
     spotifyId: "4ixfEYxE37EqYshDaqqkoH"
   },
   {
     title: "NON CI VADO AL",
-    tag: "VISION",
     img: `${import.meta.env.BASE_URL}assets/non-ci-vado-al.jpg`,
     spotifyId: "3KohbjrgKKgbIUZAqXS4CU"
   },
   {
     title: "ROCK DVR",
-    tag: "HOT",
     img: `${import.meta.env.BASE_URL}assets/rock-dvr.jpg`,
     spotifyId: "6WWtmHKupQx8vBUNon7cGj"
   }
@@ -22,17 +19,15 @@ const FIVESEVEN_DROPS = [
 const CBR320_DROPS = [
   {
     title: "DIMELO QUE ES",
-    tag: "ADE 2025",
     img: `${import.meta.env.BASE_URL}assets/born-again.jpg`,
     spotifyId: "2XwSeZA8oxBOq3uISDPtBu"
   }
 ];
 
-const DropCard = ({ title, tag, img, spotifyId }: any) => (
+const DropCard = ({ title, img, spotifyId }: any) => (
   <div className="drop-card-swag brutal-card">
     <div className="drop-image">
       <img src={img} alt={title} />
-      <div className="drop-overlay-tag">{tag}</div>
     </div>
     <div className="drop-content">
       <h4 className="drop-title glitch" data-text={title}>{title}</h4>
