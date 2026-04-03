@@ -18,28 +18,44 @@ const FIVESEVEN_DROPS = [
 
 const CBR320_DROPS = [
   {
+    title: "SPACESHIP",
+    img: `${import.meta.env.BASE_URL}assets/spaceship.jpg`,
+    soundcloudUrl: "https://soundcloud.com/cbr320/spaceship-cbr320-edit"
+  },
+  {
     title: "DIMELO QUE ES",
     img: `${import.meta.env.BASE_URL}assets/born-again.jpg`,
     spotifyId: "2XwSeZA8oxBOq3uISDPtBu"
   }
 ];
 
-const DropCard = ({ title, img, spotifyId }: any) => (
+const DropCard = ({ title, img, spotifyId, soundcloudUrl }: any) => (
   <div className="drop-card-swag brutal-card">
     <div className="drop-image">
       <img src={img} alt={title} />
     </div>
     <div className="drop-content">
       <h4 className="drop-title glitch" data-text={title}>{title}</h4>
-      <iframe 
-        style={{ borderRadius: '0' }} 
-        src={`https://open.spotify.com/embed/track/${spotifyId}?utm_source=generator&theme=0`} 
-        width="100%" 
-        height="80" 
-        frameBorder="0" 
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-        loading="lazy"
-      ></iframe>
+      {spotifyId && (
+        <iframe 
+          style={{ borderRadius: '0' }} 
+          src={`https://open.spotify.com/embed/track/${spotifyId}?utm_source=generator&theme=0`} 
+          width="100%" 
+          height="80" 
+          frameBorder="0" 
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+          loading="lazy"
+        ></iframe>
+      )}
+      {soundcloudUrl && (
+        <iframe 
+          width="100%" 
+          height="80" 
+          frameBorder="0" 
+          allow="autoplay" 
+          src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(soundcloudUrl)}&color=%23ff0000&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false`}
+        ></iframe>
+      )}
     </div>
   </div>
 );
