@@ -18,9 +18,6 @@ export const Booking = () => {
     const object = Object.fromEntries(formData.entries());
     const json = JSON.stringify(object);
 
-    console.log("[FORM DEBUG] Dati pronti per l'invio:", object);
-    console.log("[FORM DEBUG] 2. Avvio fetch verso Web3Forms...");
-
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -31,20 +28,15 @@ export const Booking = () => {
         body: json
       });
 
-      console.log(`[FORM DEBUG] 3. Risposta ricevuta (Status: ${response.status})`);
-
-      const result = await response.json();
       if (response.ok) {
-        console.log("[FORM DEBUG] Successo:", result);
         setStatus('SUCCESS');
         form.reset();
       } else {
-        console.error("[FORM DEBUG] Errore Web3Forms:", result);
         setStatus('ERROR');
         setTimeout(() => setStatus('IDLE'), 3000);
       }
     } catch (error) {
-      console.error("[FORM DEBUG] Errore critico (Network/CORS):", error);
+      console.error("[FORM DEBUG] Errore critico:", error);
       setStatus('ERROR');
       setTimeout(() => setStatus('IDLE'), 3000);
     }
@@ -58,14 +50,60 @@ export const Booking = () => {
         </div>
         
         {status === 'SUCCESS' ? (
-          <div className="success-message-swag" style={{ textAlign: 'center', padding: '50px', background: 'rgba(15, 15, 15, 0.8)', border: '1px solid var(--red)', backdropFilter: 'blur(10px)' }}>
-            <h3 className="title artist-title-big red-glow-text">TRANSMISSION RECEIVED</h3>
-            <p style={{ color: 'var(--white)', fontSize: '1.2rem', marginBottom: '30px', letterSpacing: '1px' }}>
-              Your message has been uploaded to the mainframe. We will contact you shortly.
+          <div className="success-message-swag" style={{ 
+            textAlign: 'center', 
+            padding: '100px 40px', 
+            background: 'rgba(10, 10, 10, 0.9)', 
+            border: '1px solid rgba(255, 0, 0, 0.3)', 
+            backdropFilter: 'blur(20px)',
+            maxWidth: '900px',
+            margin: '0 auto',
+            boxShadow: 'inset 0 0 30px rgba(255, 0, 0, 0.05)'
+          }}>
+            <h3 className="title" style={{ 
+              color: 'var(--white)', 
+              textShadow: '0 0 10px var(--red), 0 0 20px rgba(255, 0, 0, 0.4)', 
+              letterSpacing: '4px',
+              fontSize: 'clamp(1.2rem, 4vw, 2.5rem)',
+              lineHeight: '1',
+              marginBottom: '30px',
+              fontWeight: '900',
+              textTransform: 'uppercase',
+              whiteSpace: 'nowrap'
+            }}>
+              TRANSMISSION RECEIVED
+            </h3>
+            <div style={{ 
+              width: '40px', 
+              height: '2px', 
+              background: 'var(--red)', 
+              margin: '0 auto 30px',
+              boxShadow: '0 0 10px var(--red)'
+            }}></div>
+            <p style={{ 
+              color: 'var(--white)', 
+              fontSize: '0.9rem', 
+              marginBottom: '40px', 
+              letterSpacing: '2px',
+              fontWeight: '300',
+              opacity: 0.7,
+              textTransform: 'uppercase'
+            }}>
+              Your message has been uploaded to the mainframe.<br/>
+              We will contact you shortly.
             </p>
             <button 
               className="btn-booking-swag" 
               onClick={() => setStatus('IDLE')}
+              style={{ 
+                background: 'transparent', 
+                border: '1px solid var(--red)', 
+                color: 'var(--red)',
+                padding: '12px 25px',
+                fontSize: '0.75rem',
+                letterSpacing: '3px',
+                transition: 'all 0.3s ease'
+              }}
             >
               SEND ANOTHER MESSAGE
             </button>
