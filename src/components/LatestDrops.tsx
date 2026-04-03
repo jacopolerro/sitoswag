@@ -13,6 +13,11 @@ const FIVESEVEN_DROPS = [
     title: "ROCK DVR",
     img: `${import.meta.env.BASE_URL}assets/rock-dvr.jpg`,
     spotifyId: "6WWtmHKupQx8vBUNon7cGj"
+  },
+  {
+    title: "LIVE IS LIFE (RMX)",
+    img: `${import.meta.env.BASE_URL}assets/live-is-life.png`,
+    soundcloudUrl: "https://soundcloud.com/gvmwav/live-is-life-fiveseven-remix"
   }
 ];
 
@@ -77,11 +82,11 @@ const DropCard = ({ title, img, spotifyId, soundcloudUrl }: any) => (
             height="80" 
             frameBorder="0" 
             allow="autoplay" 
-            src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(soundcloudUrl)}&color=%2300ffff&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=true&visual=false`}
+            src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(soundcloudUrl)}&color=%2300ffff&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=true&visual=false&show_artwork=false`}
             style={{ 
               filter: 'invert(1) brightness(1.2)', 
               position: 'absolute',
-              left: '-80px', // Nasconde la cover originale di SoundCloud sotto la nostra
+              left: '80px', // Posizionato esattamente dopo la cover personalizzata
               top: '0',
               zIndex: 5
             }}
