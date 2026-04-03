@@ -8,7 +8,7 @@ const FIVESEVEN_DROPS = [
   {
     title: "NON CI VADO AL",
     tag: "VISION",
-    img: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&q=80&w=800",
+    img: `${import.meta.env.BASE_URL}assets/non-ci-vado-al.jpg`,
     spotifyId: "3KohbjrgKKgbIUZAqXS4CU"
   },
   {
