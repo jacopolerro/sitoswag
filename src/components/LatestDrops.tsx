@@ -20,7 +20,8 @@ const CBR320_DROPS = [
   {
     title: "SPACESHIP",
     img: `${import.meta.env.BASE_URL}assets/spaceship.jpg`,
-    soundcloudUrl: "https://soundcloud.com/cbr320/spaceship-cbr320-edit"
+    soundcloudUrl: "https://soundcloud.com/cbr320/spaceship-cbr320-edit",
+    isDark: true
   },
   {
     title: "DIMELO QUE ES",
@@ -29,13 +30,13 @@ const CBR320_DROPS = [
   }
 ];
 
-const DropCard = ({ title, img, spotifyId, soundcloudUrl }: any) => (
-  <div className="drop-card-swag brutal-card">
+const DropCard = ({ title, img, spotifyId, soundcloudUrl, isDark }: any) => (
+  <div className={`drop-card-swag brutal-card ${isDark ? 'is-dark-drop' : ''}`}>
     <div className="drop-image">
-      <img src={img} alt={title} />
+      <img src={img} alt={title} style={isDark ? { filter: 'grayscale(1) brightness(0.3) contrast(1.5)' } : {}} />
     </div>
     <div className="drop-content">
-      <h4 className="drop-title glitch" data-text={title}>{title}</h4>
+      <h4 className={isDark ? "drop-title-clean" : "drop-title glitch"} data-text={title}>{title}</h4>
       {spotifyId && (
         <iframe 
           style={{ borderRadius: '0' }} 
@@ -48,13 +49,16 @@ const DropCard = ({ title, img, spotifyId, soundcloudUrl }: any) => (
         ></iframe>
       )}
       {soundcloudUrl && (
-        <iframe 
-          width="100%" 
-          height="80" 
-          frameBorder="0" 
-          allow="autoplay" 
-          src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(soundcloudUrl)}&color=%23ff0000&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false`}
-        ></iframe>
+        <div style={{ background: '#000', padding: '2px', border: '1px solid #333' }}>
+          <iframe 
+            width="100%" 
+            height="80" 
+            frameBorder="0" 
+            allow="autoplay" 
+            src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(soundcloudUrl)}&color=%23000000&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false`}
+            style={{ filter: 'invert(0.9) hue-rotate(180deg) contrast(1.2)' }}
+          ></iframe>
+        </div>
       )}
     </div>
   </div>

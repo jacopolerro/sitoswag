@@ -404,6 +404,15 @@ section {
   letter-spacing: -1px;
 }
 
+.drop-title-clean {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
 /* BOOKING SECTION SWAG */
 .booking-container {
   padding: 0 5%;
