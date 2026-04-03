@@ -48,42 +48,42 @@ const DropCard = ({ title, img, spotifyId, soundcloudUrl }: any) => (
         ></iframe>
       )}
       {soundcloudUrl && (
-        <div style={{ position: 'relative', background: '#000', padding: '1px', border: '1px solid #222', height: '82px', overflow: 'hidden' }}>
-          {/* Immagine originale sovrapposta per massima nitidezza, coprendo il gap */}
-          <div style={{ 
-            position: 'absolute', 
-            left: '1px', 
-            top: '1px', 
-            height: '80px', 
-            width: '84px', // Leggermente più larga per coprire bene il bordo interno del player
-            zIndex: 10, 
-            background: '#000',
-            overflow: 'hidden'
-          }}>
-            <img 
-              src={img} 
-              alt="" 
-              style={{ 
-                height: '100%', 
-                width: '100%', 
-                objectFit: 'cover',
-                pointerEvents: 'none' 
-              }} 
-            />
-          </div>
+        <div style={{ 
+          position: 'relative', 
+          background: '#000', 
+          height: '80px', 
+          border: '1px solid #222', 
+          overflow: 'hidden' 
+        }}>
+          {/* Cover originale nitida sovrapposta */}
+          <img 
+            src={img} 
+            alt="" 
+            style={{ 
+              position: 'absolute', 
+              left: '0', 
+              top: '0', 
+              height: '80px', 
+              width: '80px', 
+              zIndex: 10, 
+              objectFit: 'cover',
+              borderRight: '1px solid #222'
+            }} 
+          />
           
-          {/* Player SoundCloud invertito: color #00ffff (cyan) diventa Rosso (#ff0000) dopo invert(1) */}
+          {/* Player SoundCloud: invertito per essere nero con tasto play rosso */}
           <iframe 
-            width="100%" 
+            width="800px" // Larghezza fissa molto ampia per forzare la visibilità del titolo interno
             height="80" 
             frameBorder="0" 
             allow="autoplay" 
-            src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(soundcloudUrl)}&color=%2300ffff&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=false`}
+            src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(soundcloudUrl)}&color=%2300ffff&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=true&visual=false`}
             style={{ 
-              filter: 'invert(1) hue-rotate(180deg) brightness(1.1)',
-              position: 'relative',
-              zIndex: 5,
-              marginLeft: '-2px' // Shifta il player a sinistra per eliminare il bianco
+              filter: 'invert(1) brightness(1.2)', 
+              position: 'absolute',
+              left: '-80px', // Nasconde la cover originale di SoundCloud sotto la nostra
+              top: '0',
+              zIndex: 5
             }}
           ></iframe>
         </div>
