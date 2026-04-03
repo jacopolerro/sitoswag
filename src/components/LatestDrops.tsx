@@ -2,7 +2,7 @@ const FIVESEVEN_DROPS = [
   {
     title: "MILLI FLOW",
     tag: "NEW ERA",
-    img: "https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?auto=format&fit=crop&q=80&w=800",
+    img: `${import.meta.env.BASE_URL}assets/milli-flow.jpg`,
     spotifyId: "4ixfEYxE37EqYshDaqqkoH"
   },
   {
