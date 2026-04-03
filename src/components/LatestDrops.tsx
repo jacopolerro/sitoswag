@@ -19,6 +19,12 @@ const CBR320_DROPS = [
     tag: "HOT",
     img: "https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?auto=format&fit=crop&q=80&w=800",
     spotifyId: "6WWtmHKupQx8vBUNon7cGj"
+  },
+  {
+    title: "BORN AGAIN",
+    tag: "ADE 2025",
+    img: "/assets/born-again.jpg",
+    spotifyId: "2XwSeZA8oxBOq3uISDPtBu"
   }
 ];
 
