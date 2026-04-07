@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from 'react';
+import j5Icon from '../assets/j5.png';
 
 export const Booking = () => {
   const [status, setStatus] = useState<'IDLE' | 'SUBMITTING' | 'SUCCESS' | 'ERROR'>('IDLE');
@@ -170,6 +171,18 @@ export const Booking = () => {
             </button>
           </form>
         )}
+      </div>
+
+      {/* GRINDING PATTERN BAR - MOVED OUTSIDE CONTAINER FOR FULL WIDTH */}
+      <div className="grinding-banner">
+        <div className="grinding-scroll">
+          {[...Array(20)].map((_, i) => (
+            <div key={i} className="grinding-item">
+              <img src={j5Icon} alt="" className="grinding-icon" />
+              <span className="grinding-text">KEEP GRINDING</span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
