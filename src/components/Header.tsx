@@ -19,7 +19,7 @@ export const Header = () => {
 
   return (
     <header className={`top-header ${isScrolled ? 'header-hidden' : ''}`}>
-      <nav className="top-nav" style={{ gap: '20px' }}>
+      <nav className="top-nav" style={{ gap: 'clamp(8px, 2vw, 20px)' }}>
         <a href="#profiles">PROFILES</a>
         <a href="#drops">DROPS</a>
         <a href="#booking" className="nav-pill-red">BOOKING</a>
