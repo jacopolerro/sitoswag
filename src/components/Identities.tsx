@@ -23,6 +23,10 @@ export const Identities = () => {
           <div className="identity-content">
             <h3 className="zone-title">FIVESEVEN</h3>
             <div className="profile-links" onClick={(e) => e.stopPropagation()}>
+              <a href="https://www.instagram.com/fivesevennnnnnnn/" target="_blank" rel="noopener noreferrer" className="brutal-card music-link-small">
+                <InstagramIcon />
+                <span className="music-label-small">INSTAGRAM</span>
+              </a>
               <a href="https://soundcloud.com/gvmwav" target="_blank" rel="noopener noreferrer" className="brutal-card music-link-small">
                 <svg viewBox="0 0 24 24" className="music-logo-defined" fill="currentColor"><path d="M11.56 8.87V17h9.05c1.87 0 3.39-1.52 3.39-3.39 0-1.88-1.52-3.39-3.39-3.39-.23 0-.46.03-.68.08-.57-3.08-3.26-5.41-6.49-5.41-1.42 0-2.73.45-3.8 1.21-.4-.68-1.12-1.13-1.95-1.13-.6 0-1.14.24-1.53.62V8.87c0 .54.44.98.98.98.54 0 .97-.44.97-.98zM2.63 12.3c-.54 0-.98.44-.98.98v1.36c0 .54.44.98.98.98.54 0 .97-.44.97-.98v-1.36c0-.54-.44-.98-.97-.98zm1.95-1.47c-.54 0-.98.44-.98.98v3.3c0 .54.44.98.98.98.54 0 .97-.44.97-.98v-3.3c0-.54-.44-.98-.97-.98zm1.95-.97c-.54 0-.98.44-.98.98v4.75c0 .54.44.98.98.98.54 0 .97-.44.97-.98v-4.75c0-.54-.44-.98-.97-.98zm1.95 0c-.54 0-.98.44-.98.98v4.75c0 .54.44.98.98.98.54 0 .97-.44.97-.98v-4.75c0-.54-.44-.98-.97-.98z"/></svg>
                 <span className="music-label-small">SOUNDCLOUD</span>
@@ -45,6 +49,10 @@ export const Identities = () => {
           <div className="identity-content">
             <h3 className="zone-title">CBR320</h3>
             <div className="profile-links" onClick={(e) => e.stopPropagation()}>
+              <a href="https://www.instagram.com/cbr.320/" target="_blank" rel="noopener noreferrer" className="brutal-card music-link-small">
+                <InstagramIcon />
+                <span className="music-label-small">INSTAGRAM</span>
+              </a>
               <a href="https://soundcloud.com/cbr320" target="_blank" rel="noopener noreferrer" className="brutal-card music-link-small">
                 <svg viewBox="0 0 24 24" className="music-logo-defined" fill="currentColor"><path d="M11.56 8.87V17h9.05c1.87 0 3.39-1.52 3.39-3.39 0-1.88-1.52-3.39-3.39-3.39-.23 0-.46.03-.68.08-.57-3.08-3.26-5.41-6.49-5.41-1.42 0-2.73.45-3.8 1.21-.4-.68-1.12-1.13-1.95-1.13-.6 0-1.14.24-1.53.62V8.87c0 .54.44.98.98.98.54 0 .97-.44.97-.98zM2.63 12.3c-.54 0-.98.44-.98.98v1.36c0 .54.44.98.98.98.54 0 .97-.44.97-.98v-1.36c0-.54-.44-.98-.97-.98zm1.95-1.47c-.54 0-.98.44-.98.98v3.3c0 .54.44.98.98.98.54 0 .97-.44.97-.98v-3.3c0-.54-.44-.98-.97-.98zm1.95-.97c-.54 0-.98.44-.98.98v4.75c0 .54.44.98.98.98.54 0 .97-.44.97-.98v-4.75c0-.54-.44-.98-.97-.98zm1.95 0c-.54 0-.98.44-.98.98v4.75c0 .54.44.98.98.98.54 0 .97-.44.97-.98v-4.75c0-.54-.44-.98-.97-.98z"/></svg>
                 <span className="music-label-small">SOUNDCLOUD</span>
@@ -60,3 +68,11 @@ export const Identities = () => {
     </section>
   );
 };
+
+const InstagramIcon = () => (
+  <svg viewBox="0 0 24 24" className="music-logo-defined" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+);
