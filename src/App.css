@@ -602,12 +602,17 @@ section {
 }
 
 .jweb-link {
-  color: inherit;
+  color: var(--red); /* Colore rosso per farlo staccare dal testo bianco/grigio */
   text-decoration: underline;
-  transition: opacity 0.3s ease;
+  text-underline-offset: 4px;
+  font-weight: 900;
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  display: inline-block;
 }
 
 .jweb-link:hover {
+  transform: translateY(-2px);
+  text-shadow: 0 0 10px var(--red);
   opacity: 1;
 }
 
