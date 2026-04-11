@@ -182,9 +182,8 @@ section {
 .multiverse-container {
   display: grid;
   grid-template-columns: 1fr 1fr; /* Manteniamo DUE colonne anche su mobile */
-  min-height: 100vh;
+  min-height: 80vh;
   border-top: 5px solid var(--red);
-  border-bottom: 5px solid var(--red);
 }
 
 .music-zone {
@@ -549,6 +548,39 @@ section {
   box-shadow: 0 10px 20px rgba(255, 0, 0, 0.4);
 }
 
+.pattern-full-divider-swag {
+  width: 120%;
+  margin-left: -10%;
+  height: clamp(100px, 15vw, 180px);
+  background-image: url('./assets/f6.png');
+  background-size: contain;
+  background-repeat: repeat-x;
+  background-position: center;
+  mix-blend-mode: screen;
+  opacity: 0.5;
+  margin-top: 0;
+  margin-bottom: 80px;
+  pointer-events: none;
+  filter: contrast(1.1);
+  border-top: 5px solid var(--red);
+}
+
+.pattern-divider-swag {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.6;
+}
+
+.pattern-divider-swag img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  filter: contrast(1.1) brightness(1.1);
+  mix-blend-mode: screen;
+}
+
 .social-footer-branding {
   margin-top: 100px;
   padding-bottom: 50px;
@@ -569,73 +601,148 @@ section {
   opacity: 0.7;
 }
 
+/* SOUNDCLOUD PLAYER STYLES - SWAG REFINED */
+.soundcloud-container-swag {
+  position: relative; 
+  background: #000; 
+  height: 80px; 
+  border: 1px solid #222; 
+  overflow: hidden;
+}
+
+.soundcloud-cover-swag {
+  position: absolute; 
+  left: 0; 
+  top: 0; 
+  height: 80px; 
+  width: 80px; 
+  z-index: 10; 
+  object-fit: cover;
+  border-right: 1px solid #222;
+}
+
+.soundcloud-iframe-swag {
+  filter: invert(1) brightness(1.2); 
+  position: absolute;
+  left: 80px;
+  top: 0;
+  z-index: 5;
+  width: calc(100% - 80px);
+  height: 80px;
+  mix-blend-mode: lighten;
+}
+
+@media (max-width: 768px) {
+  .pattern-divider-swag {
+    margin-top: 50px;
+  }
+  .social-footer-branding {
+    margin-top: 50px;
+  }
+}
+
 @media (max-width: 768px) {
   /* Rimossa la trasformazione in verticale del multiverse-container */
   /* .multiverse-container { grid-template-columns: 1fr; }  <- CANCELLATA */
   .brutal-form-swag { padding: 30px 20px; }
   .artist-title-big { font-size: clamp(2rem, 10vw, 4rem); }
 
-  /* OTTIMIZZAZIONE DROPS MOBILE - EASY TO USE */
+  /* OTTIMIZZAZIONE DROPS MOBILE - PROFESSIONAL SWAG */
   .drops-scroll-wrapper {
-    overflow-x: visible; /* Rimuove lo scroll orizzontale */
+    overflow-x: visible; 
     padding: 0;
   }
 
   .drops-grid-swag.scrollable {
     display: flex;
-    flex-direction: column; /* Lista verticale */
-    gap: 15px; /* Spazio ridotto tra i player */
+    flex-direction: column;
+    gap: 30px; 
   }
 
   .drops-grid-swag.scrollable .drop-card-swag {
     flex: 0 0 auto;
     min-width: 100%;
     width: 100%;
-    border: 1px solid rgba(255, 0, 0, 0.2); /* Bordo rosso sottile su mobile */
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
+  .drop-card-inner-swag {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ELENCO PLAYER COMPATTO - PROFESSIONAL STYLE */
   .drop-image {
-    display: none; /* Nasconde la copertina su mobile */
+    display: none !important; 
   }
 
   .drop-content {
-    padding: 10px; /* Padding minimo */
-    gap: 0;
+    padding: 15px !important;
+    gap: 12px !important;
+  }
+
+  .drop-card-swag {
+    background: rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    margin-bottom: 10px;
   }
 
   .drop-title {
-    display: none; /* Nasconde il titolo, già presente nei player */
+    display: block !important;
+    font-size: 1rem !important;
+    letter-spacing: 2px !important;
+    margin-bottom: 10px !important;
+    color: var(--white);
+    font-weight: 900;
   }
 
-  /* Fix specifico per il player SoundCloud custom su mobile */
-  .drop-content div[style*="height: 80px"] {
+  /* SOUNDCLOUD MOBILE - THE DEFINITIVE PRO FIX */
+  .soundcloud-container-swag {
     height: 80px !important;
+    width: 100% !important;
     background: #000 !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    display: flex;
   }
 
-  .drop-content div[style*="height: 80px"] img {
-    display: none; /* Nasconde la cover sovrapposta di SoundCloud su mobile */
+  .soundcloud-cover-swag {
+    display: block !important; /* Torna visibile per matchare il desktop */
+    position: relative !important;
+    flex: 0 0 80px;
+    width: 80px !important;
+    height: 80px !important;
+    z-index: 10;
+    border-right: 1px solid #222;
   }
 
-  .drop-content div[style*="height: 80px"] iframe {
-    left: 0 !important; 
-    width: 800px !important; /* IMPORTANTE: Manteniamo 800px per forzare la versione desktop (niente banner blu) */
-    max-width: none !important; /* Impedisce che il browser lo stringa */
-    transform-origin: left center;
-    transform: scale(1); /* Eventualmente possiamo scalare se serve, ma lasciamo 1 per nitidezza */
-    mix-blend-mode: lighten; /* Aiuta a fondere il player nero invertito con lo sfondo */
+  .soundcloud-iframe-swag {
+    position: absolute !important;
+    top: 0 !important;
+    left: 80px !important; /* Inizia dopo la copertina */
+    width: 1200px !important; /* Forza UI Desktop */
+    height: 240px !important; /* Altezza tripla per compensare lo scale 0.33 */
+    max-width: none !important;
+    transform-origin: left top;
+    transform: scale(0.333); /* 1200 * 0.333 = 400px circa (perfetto per mobile) */
+    filter: invert(1) brightness(1.2) !important;
+    mix-blend-mode: lighten !important;
+    z-index: 5;
   }
 }
 
 /* Rest of standard styles */
-.section { 
-  padding: clamp(40px, 10vw, 100px) 0; 
-  background-color: var(--black); 
-  position: relative; 
-  z-index: 10; 
+.section {
+  padding: clamp(40px, 10vw, 100px) 0;
+  background-color: var(--black);
+  position: relative;
+  z-index: 10;
 }
 
+#profiles {
+  padding-bottom: 0 !important;
+}
 /* MOBILE BACKGROUND EXPERIMENT - TRANSPARENT SECTIONS */
 @media (max-width: 768px) {
   #profiles, #drops, #booking, #social, .section {

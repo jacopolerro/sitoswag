@@ -1,4 +1,5 @@
 import j5Icon from '../assets/j5.png';
+import f6Pattern from '../assets/f6.png';
 
 const SOCIAL_LINKS = [
   { name: "BABYLON", url: "https://www.instagram.com/babylonroma?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" },
@@ -26,6 +27,10 @@ export const Social = () => (
             <span className="social-name">{link.name}</span>
           </a>
         ))}
+      </div>
+
+      <div className="pattern-divider-swag">
+        <img src={f6Pattern} alt="" />
       </div>
 
       <div className="social-footer-branding">

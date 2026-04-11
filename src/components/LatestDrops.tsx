@@ -36,63 +36,47 @@ const CBR320_DROPS = [
 
 const DropCard = ({ title, img, spotifyId, soundcloudUrl }: any) => (
   <div className="drop-card-swag brutal-card">
-    <div className="drop-image">
-      <img src={img} alt={title} />
-    </div>
-    <div className="drop-content">
-      <h4 className="drop-title glitch" data-text={title}>{title}</h4>
-      {spotifyId && (
-        <iframe 
-          style={{ borderRadius: '0' }} 
-          src={`https://open.spotify.com/embed/track/${spotifyId}?utm_source=generator&theme=0`} 
-          width="100%" 
-          height="80" 
-          frameBorder="0" 
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-          loading="lazy"
-        ></iframe>
-      )}
-      {soundcloudUrl && (
-        <div style={{ 
-          position: 'relative', 
-          background: '#000', 
-          height: '80px', 
-          border: '1px solid #222', 
-          overflow: 'hidden' 
-        }}>
-          {/* Cover originale nitida sovrapposta */}
-          <img 
-            src={img} 
-            alt="" 
-            style={{ 
-              position: 'absolute', 
-              left: '0', 
-              top: '0', 
-              height: '80px', 
-              width: '80px', 
-              zIndex: 10, 
-              objectFit: 'cover',
-              borderRight: '1px solid #222'
-            }} 
-          />
-          
-          {/* Player SoundCloud: invertito per essere nero con tasto play rosso */}
-          <iframe 
-            width="800px" // Larghezza fissa molto ampia per forzare la visibilità del titolo interno
-            height="80" 
-            frameBorder="0" 
-            allow="autoplay" 
-            src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(soundcloudUrl)}&color=%2300ffff&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=true&visual=false&show_artwork=false`}
-            style={{ 
-              filter: 'invert(1) brightness(1.2)', 
-              position: 'absolute',
-              left: '80px', // Posizionato esattamente dopo la cover personalizzata
-              top: '0',
-              zIndex: 5
-            }}
-          ></iframe>
+    <div className="drop-card-inner-swag">
+      <div className="drop-image">
+        <img src={img} alt={title} />
+      </div>
+      <div className="drop-content">
+        <h4 className="drop-title glitch" data-text={title}>{title}</h4>
+        <div className="player-wrapper-swag">
+          {spotifyId && (
+            <iframe 
+              style={{ borderRadius: '0' }} 
+              src={`https://open.spotify.com/embed/track/${spotifyId}?utm_source=generator&theme=0`} 
+              width="100%" 
+              height="80" 
+              frameBorder="0" 
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+              loading="lazy"
+              className="spotify-iframe-swag"
+            ></iframe>
+          )}
+          {soundcloudUrl && (
+            <div className="soundcloud-container-swag">
+              {/* Cover originale nitida sovrapposta (solo Desktop) */}
+              <img 
+                src={img} 
+                alt="" 
+                className="soundcloud-cover-swag"
+              />
+              
+              {/* Player SoundCloud */}
+              <iframe 
+                width="100%" 
+                height="80" 
+                frameBorder="0" 
+                allow="autoplay" 
+                src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(soundcloudUrl)}&color=%2300ffff&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=true&visual=false&show_artwork=false`}
+                className="soundcloud-iframe-swag"
+              ></iframe>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   </div>
 );

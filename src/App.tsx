@@ -17,6 +17,7 @@ function App() {
       <Hero />
       <Marquee />
       <Identities />
+      <div className="pattern-full-divider-swag"></div>
       <LatestDrops />
       <Booking />
       <Social />
