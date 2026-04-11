@@ -35,7 +35,10 @@ export const Social = () => (
 
       <div className="social-footer-branding">
         <img src={j5Icon} alt="" className="footer-icon-swag" />
-        <p className="footer-copyright">© 2026 FIVESEVEN CBR. TRULY HUMBLE UNDER GOD.</p>
+        <p className="footer-copyright">
+          © 2026 FIVESEVEN CBR. 
+          <a href="https://www.instagram.com/jweb.69?igsh=NnpqNXV0MmplenEx" target="_blank" rel="noopener noreferrer" className="jweb-link"> PRODUCED BY JWEB</a>
+        </p>
       </div>
     </div>
   </section>

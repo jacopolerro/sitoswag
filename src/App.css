@@ -601,6 +601,16 @@ section {
   opacity: 0.7;
 }
 
+.jweb-link {
+  color: inherit;
+  text-decoration: underline;
+  transition: opacity 0.3s ease;
+}
+
+.jweb-link:hover {
+  opacity: 1;
+}
+
 /* SOUNDCLOUD PLAYER STYLES - SWAG REFINED */
 .soundcloud-container-swag {
   position: relative; 
