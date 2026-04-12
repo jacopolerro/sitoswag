@@ -410,94 +410,118 @@ section {
   color: var(--red);
 }
 
-/* MASTER PLAYER MOBILE - DEFINITIVE SWAG */
+/* GLOBAL MASTER PLAYER BAR - FLOATING SLIM DESIGN */
+.bottom-player-bar-swag {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 900px;
+  height: 80px; /* Altezza aumentata per far stare il player perfettamente */
+  background: rgba(15, 15, 15, 0.9);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 0, 0, 0.2); /* Bordo quasi invisibile */
+  border-radius: 12px;
+  z-index: 99999;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+  padding: 0 15px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.player-bar-content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.mini-cover-bar {
+  width: 45px;
+  height: 45px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.player-bar-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 200px;
+}
+
+.bar-track-name {
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.bar-artist-name {
+  font-size: 0.65rem;
+  color: var(--red);
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.player-bar-central {
+  flex-grow: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 500px;
+}
+
+.master-audio-engine {
+  width: 100%;
+  height: 100%;
+  opacity: 0.8; /* Più fuso col design */
+}
+
+/* Rimosso tasto chiusura */
+.close-player-bar {
+  display: none !important;
+}
+
+/* MASTER PLAYER MOBILE - SLIM & PRO */
 @media (max-width: 768px) {
   .bottom-player-bar-swag {
-    height: auto !important;
-    min-height: 110px;
-    padding: 12px 15px env(safe-area-inset-bottom) !important; /* Gestione notch/barre iOS */
-    background: rgba(0, 0, 0, 0.95) !important;
-    backdrop-filter: blur(20px);
-    border-top: 2px solid var(--red);
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .player-bar-content {
-    display: grid !important;
-    grid-template-columns: 1fr auto !important;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-  }
-  
-  .player-bar-info {
-    display: flex !important; /* Ripristinata la copertina su mobile */
-    align-items: center;
-    gap: 12px;
-    max-width: 70%;
-  }
-  
-  .mini-cover-bar {
-    width: 50px !important;
-    height: 50px !important;
-    border: 1px solid var(--red);
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
-  }
-  
-  .bar-text-info {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-  
-  .bar-track-name {
-    font-size: 0.85rem !important;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  .bar-artist-name {
-    font-size: 0.7rem !important;
-  }
-  
-  .master-audio-engine {
-    width: 100% !important;
-    height: 80px !important;
-    margin-top: 5px;
-    background: #000;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    bottom: 15px;
+    height: 80px;
+    width: 94%;
+    padding: 0 10px;
   }
 
-  /* Fix per SoundCloud Iframe su Mobile (Master Player) */
-  .soundcloud-master-wrapper {
-    width: 100%;
-    height: 80px;
-    overflow: hidden;
-    position: relative;
+  .player-bar-info {
+    min-width: auto;
+    max-width: 140px;
+  }
+
+  .bar-text-info {
+    display: flex; /* Mostriamo il testo ora che la cover è sparita */
+    flex-direction: column;
+  }
+
+  .player-bar-central {
+    max-width: none;
   }
 
   .soundcloud-master-iframe {
-    width: 1000px !important; /* Forza UI desktop */
-    height: 160px !important;
-    transform: scale(0.4); /* Scalato per mobile */
-    transform-origin: left top;
-    filter: invert(1) brightness(1.2) !important;
+    width: 1200px !important;
+    height: 240px !important;
+    transform: scale(0.333) translateY(-10%);
+    transform-origin: left center;
   }
+}
 
-  .close-player-bar {
-    padding: 10px;
-    margin-right: -10px;
-  }
-
-  .waveform-container { display: none; }
-  
-  /* Aggiunge spazio in fondo alla pagina per non coprire il footer col player */
-  .brutal-container {
-    padding-bottom: 150px !important;
-  }
+.soundcloud-master-iframe {
+  width: 1200px !important;
+  height: 240px !important;
+  transform: scale(0.333);
+  transform-origin: left center;
 }
 
 
@@ -907,7 +931,7 @@ section {
 /* BACK TO TOP BUTTON */
 .back-to-top {
   position: fixed;
-  bottom: 40px;
+  bottom: 120px; /* Sopra il dock */
   right: 40px;
   width: 50px;
   height: 50px;

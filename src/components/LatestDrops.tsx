@@ -65,9 +65,7 @@ const DropCard = ({ track, isActive, onPlay }: any) => (
   </div>
 );
 
-export const LatestDrops = () => {
-  const [activeTrack, setActiveTrack] = useState<any>(null);
-
+export const LatestDrops = ({ activeTrack, onPlay }: any) => {
   return (
     <section id="drops" className="section border-top">
       <div className="drops-container">
@@ -80,7 +78,7 @@ export const LatestDrops = () => {
                 key={i} 
                 track={track} 
                 isActive={activeTrack?.title === track.title}
-                onPlay={setActiveTrack}
+                onPlay={onPlay}
               />
             ))}
           </div>
@@ -95,63 +93,12 @@ export const LatestDrops = () => {
                 key={i} 
                 track={track} 
                 isActive={activeTrack?.title === track.title}
-                onPlay={setActiveTrack}
+                onPlay={onPlay}
               />
             ))}
           </div>
         </div>
       </div>
-
-      {/* PERSISTENT BOTTOM PLAYER BAR */}
-      {activeTrack && (
-        <div className="bottom-player-bar-swag slide-up">
-          <div className="player-bar-content">
-            <div className="player-bar-info">
-              <img src={activeTrack.img} alt="" className="mini-cover-bar" />
-              <div className="bar-text-info">
-                <span className="bar-track-name">{activeTrack.title}</span>
-                <span className="bar-artist-name">{activeTrack.artist}</span>
-              </div>
-            </div>
-            
-            <div className="player-bar-central">
-              <div className="waveform-container">
-                {[...Array(60)].map((_, i) => (
-                  <div 
-                    key={i} 
-                    className="wave-bar" 
-                    style={{ 
-                      height: `${20 + Math.random() * 80}%`,
-                      animationDelay: `${i * 0.03}s`
-                    }}
-                  ></div>
-                ))}
-              </div>
-              
-              <div className="master-audio-engine">
-                {activeTrack.spotifyId ? (
-                  <iframe 
-                    src={`https://open.spotify.com/embed/track/${activeTrack.spotifyId}?utm_source=generator&theme=0`} 
-                    width="100%" height="80" frameBorder="0" allow="autoplay" 
-                  ></iframe>
-                ) : (
-                  <div className="soundcloud-master-wrapper">
-                    <iframe 
-                      src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(activeTrack.soundcloudUrl)}&color=%23ff0000&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false&show_artwork=false`}
-                      width="1200" height="240" frameBorder="0" allow="autoplay" 
-                      className="soundcloud-master-iframe"
-                    ></iframe>
-                  </div>
-                )}
-              </div>
-            </div>
-
-            <button className="close-player-bar" onClick={() => setActiveTrack(null)}>
-              <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-            </button>
-          </div>
-        </div>
-      )}
     </section>
   );
 };
