@@ -410,49 +410,94 @@ section {
   color: var(--red);
 }
 
-/* MASTER PLAYER MOBILE FIX */
+/* MASTER PLAYER MOBILE - DEFINITIVE SWAG */
 @media (max-width: 768px) {
-  .drops-grid-swag {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
   .bottom-player-bar-swag {
-    height: 140px; /* Più alto per far stare il player reale */
-    padding: 10px;
+    height: auto !important;
+    min-height: 110px;
+    padding: 12px 15px env(safe-area-inset-bottom) !important; /* Gestione notch/barre iOS */
+    background: rgba(0, 0, 0, 0.95) !important;
+    backdrop-filter: blur(20px);
+    border-top: 2px solid var(--red);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
   
   .player-bar-content {
-    grid-template-columns: 1fr;
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    align-items: center;
     gap: 10px;
+    width: 100%;
   }
   
   .player-bar-info {
-    display: flex; /* Tornano le info ma compatte */
-    gap: 10px;
+    display: flex !important; /* Ripristinata la copertina su mobile */
+    align-items: center;
+    gap: 12px;
+    max-width: 70%;
   }
   
   .mini-cover-bar {
-    width: 40px;
-    height: 40px;
+    width: 50px !important;
+    height: 50px !important;
+    border: 1px solid var(--red);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
   }
   
   .bar-text-info {
-    font-size: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .bar-track-name {
+    font-size: 0.85rem !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .bar-artist-name {
+    font-size: 0.7rem !important;
   }
   
   .master-audio-engine {
+    width: 100% !important;
+    height: 80px !important;
+    margin-top: 5px;
+    background: #000;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Fix per SoundCloud Iframe su Mobile (Master Player) */
+  .soundcloud-master-wrapper {
     width: 100%;
     height: 80px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .soundcloud-master-iframe {
+    width: 1000px !important; /* Forza UI desktop */
+    height: 160px !important;
+    transform: scale(0.4); /* Scalato per mobile */
+    transform-origin: left top;
+    filter: invert(1) brightness(1.2) !important;
   }
 
   .close-player-bar {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    padding: 10px;
+    margin-right: -10px;
   }
 
   .waveform-container { display: none; }
+  
+  /* Aggiunge spazio in fondo alla pagina per non coprire il footer col player */
+  .brutal-container {
+    padding-bottom: 150px !important;
+  }
 }
 
 
