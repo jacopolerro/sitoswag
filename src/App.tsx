@@ -24,6 +24,8 @@ function App() {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('revealed');
+        } else {
+          entry.target.classList.remove('revealed'); // Permette di ri-triggerare l'effetto
         }
       });
     }, observerOptions);
