@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import { VideoBackground } from './components/VideoBackground'
 import { Header } from './components/Header'
@@ -13,17 +13,54 @@ import { BackToTop } from './components/BackToTop'
 function App() {
   const [activeTrack, setActiveTrack] = useState<any>(null);
 
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15 // Rivela la sezione quando il 15% è visibile
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, observerOptions);
+
+    const sections = document.querySelectorAll('.reveal-section');
+    sections.forEach(section => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <main className="brutal-container">
       <VideoBackground />
       <Header />
       <Hero />
-      <Marquee />
-      <Identities />
-      <div className="pattern-full-divider-swag"></div>
-      <LatestDrops activeTrack={activeTrack} onPlay={setActiveTrack} />
-      <Booking />
-      <Social />
+      
+      <div className="reveal-section">
+        <Marquee />
+      </div>
+      
+      <div className="reveal-section">
+        <Identities />
+      </div>
+
+      <div className="reveal-section">
+        <div className="pattern-full-divider-swag"></div>
+        <LatestDrops activeTrack={activeTrack} onPlay={setActiveTrack} />
+      </div>
+
+      <div className="reveal-section">
+        <Booking />
+      </div>
+
+      <div className="reveal-section">
+        <Social />
+      </div>
+
       <BackToTop />
 
       {/* GLOBAL MASTER PLAYER BAR - FLOATING AT THE BOTTOM */}

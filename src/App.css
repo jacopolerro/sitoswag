@@ -10,6 +10,19 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+/* REVEAL TRANSITIONS - PROFESSIONAL SWAG */
+.reveal-section {
+  opacity: 0;
+  transform: translateY(40px) scale(0.97);
+  transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: transform, opacity;
+}
+
+.reveal-section.revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
 .brutal-container {
   min-height: 100vh;
   padding: 0 5%;
